@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react';
+
+interface ChildSearch {
+  search: string;
+  setSearch: (text: string) => void
+}
 
 
-const Search = () => {
-    const [search, setSearch] = useState('');
+const Search: React.FC<ChildSearch> = ({search, setSearch}) => {
+    
   return (
     <View style={styles.searchWrapper}>
         <TextInput 
@@ -25,7 +29,7 @@ export default Search
 
 const styles = StyleSheet.create({
     searchWrapper:{
-        
+
     },
     searchBox:{
 

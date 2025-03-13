@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+// import React from 'react';
+import React, { useState } from 'react';
 import Search from '@/components/Search'
 
-const moviedetails = () => {
+const moviedetails: React.FC = () => {
+  const [search, setSearch] = useState<string>('');
   return (
     <View>
-        <Search />
+        <Search search={search} setSearch={setSearch} />
     </View>
   )
 }
