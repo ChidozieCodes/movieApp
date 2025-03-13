@@ -33,9 +33,11 @@ const styles = StyleSheet.create({
       flexDirection:'row'
     },
     searchBox:{
-      width:'70%',
+      width:'68%',
       padding:10,
-      backgroundColor:'white'
+      margin: '1%',
+      backgroundColor:'white',
+      borderRadius:10
 
     },
     searchBtn:{
