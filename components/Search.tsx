@@ -29,16 +29,27 @@ export default Search
 
 const styles = StyleSheet.create({
     searchWrapper:{
-
+      width:'100%',
+      flexDirection:'row'
     },
     searchBox:{
+      width:'70%',
+      padding:10,
+      backgroundColor:'white'
 
     },
     searchBtn:{
-        
+      width:'28%',
+      padding:15,
+      margin: '1%',
+      alignItems:'center',
+      justifyContent: 'center',
+      backgroundColor: '#550410',
+      borderRadius:10
     },
     searchTxt:{
-
+      color:'white',
+      fontWeight: 'bold'
     }
 
 })

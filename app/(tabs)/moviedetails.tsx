@@ -6,7 +6,7 @@ import Search from '@/components/Search'
 const moviedetails: React.FC = () => {
   const [search, setSearch] = useState<string>('');
   return (
-    <View>
+    <View style={styles.moviedetailWrapper}>
         <Search search={search} setSearch={setSearch} />
     </View>
   )
@@ -14,4 +14,12 @@ const moviedetails: React.FC = () => {
 
 export default moviedetails
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  moviedetailWrapper:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'black',
+    padding:15
+  }
+})
