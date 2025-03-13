@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Search from '@/components/Search'
 
 const moviedetails = () => {
   return (
     <View>
-      <Text>moviedetails</Text>
+        <Search />
     </View>
   )
 }
