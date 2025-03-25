@@ -1,14 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import React from 'react';
+import Search from '@/components/Search'
 
 const home = () => {
   return (
-    <View>
-      <Text>home</Text>
-    </View>
+    <ScrollView style={styles.movieWrapper}>
+      <Search />
+    </ScrollView>
   )
 }
 
 export default home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  movieWrapper:{
+    padding:25
+  }
+})
