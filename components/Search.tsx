@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { router } from 'expo-router';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+
+
 
 
 
@@ -13,6 +15,7 @@ const Search = () => {
   const [error, setError] = useState(''); // State for error messages
   const [movies, setMovies] = useState<{ imdbID: string; Title: string; Year: string; Type: string; Poster: string }[]>([])
 
+ 
 
   const searchMovie = () => {
     setError(''); //Clear any previous errors
@@ -42,6 +45,31 @@ const Search = () => {
       setError("An error occured. Please try again."); //computer error from network error
   });
   }
+
+  const getDefaultMovie = ()=>{
+
+    const currentYear = new Date().getFullYear();
+
+    setError(''); //Clear any previous errors
+
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=love&y=${currentYear}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if(data.Response === 'True'){
+        setMovies(data.Search) //update movies state with search results
+      }else{
+        setError(data.Error) //Show
+      }
+    })
+    .catch(() => {
+      setError("An error occured. Please try again."); //computer error from network error
+    });
+  }
+
+  useEffect(() => {
+    getDefaultMovie();
+  }
+  , []); //empty array means it will only run once when the component is mounted
     
   return (
     <View>

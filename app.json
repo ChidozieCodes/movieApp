@@ -9,13 +9,27 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
       }
+    },
+    
+   "android": {
+      "adaptiveIcon": {
+        "permissions": [
+          "INTERNET",
+          "ACCESS_NETWORK_STATE"
+        ],
+        "usesCleartextTraffic": true,
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#ffffff"
+        }
+      },
+      "package": "com.chidoziecodes.movieApp"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +50,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cd2a0f57-cba0-4294-bd2e-a3313a5153c2"
+      }
     }
   }
 }

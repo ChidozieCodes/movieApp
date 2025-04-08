@@ -1,14 +1,49 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useContext } from "react";
+import { View, Text, Switch, StyleSheet } from "react-native";
+import { ThemeContext } from "@/model/ThemeContext";
+import { ThemeProvider } from "@/model/ThemeContext";
 
-const profile = () => {
+export default function Profile() {
   return (
-    <View>
-      <Text>profile</Text>
-    </View>
-  )
+    <ThemeProvider>
+      <ProfileContent />
+    </ThemeProvider>
+  );
 }
 
-export default profile
+function ProfileContent() {
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext); // Use ThemeContext
 
-const styles = StyleSheet.create({})
+  if (isDarkMode === undefined) {
+    // This will help debug if the context is not available
+    return <Text>Error: ThemeContext is not available.</Text>;
+  }
+
+  return (
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: isDarkMode ? "#121212" : "#FFF" },
+      ]}
+    >
+      <Text style={[styles.text, { color: isDarkMode ? "#FFF" : "#000" }]}>
+        Dark Mode
+      </Text>
+      <Switch value={isDarkMode} onValueChange={toggleTheme} />
+
+  
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+});
